@@ -45,11 +45,16 @@ public class EditTextWithClear extends AppCompatEditText {
                 if (getCompoundDrawablesRelative()[2] != null) {
 
                     float clearButtonStartPoition = (getWidth() - getPaddingEnd() - mClearButtonImage.getIntrinsicWidth());
+                    float clearButtonEnd = mClearButtonImage.getIntrinsicWidth() + getPaddingStart();
                     boolean isButtonClicked = false;
 
                     if (motionEvent.getX() > clearButtonStartPoition) {
                         isButtonClicked = true;
                     }
+                    if (motionEvent.getX() < clearButtonEnd ) {
+                        isButtonClicked = true;
+                    }
+
 
                     if (isButtonClicked) {
                         if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
